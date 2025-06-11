@@ -1,0 +1,110 @@
+.booking-calendar {
+    background: var(--dark);
+    padding: 2rem;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .booking-calendar h3 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--gold);
+  }
+  
+  .calendar-days {
+    display: flex;
+    gap: 0.5rem;
+    overflow-x: auto;
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .calendar-day {
+    min-width: 80px;
+    padding: 1rem 0.5rem;
+    background: rgba(255,255,255,0.05);
+    border-radius: var(--radius-sm);
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .calendar-day:hover {
+    background: rgba(255,255,255,0.1);
+  }
+  
+  .calendar-day.selected {
+    background: var(--red);
+  }
+  
+  .day-name {
+    display: block;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    color: var(--gray-lighter);
+  }
+  
+  .day-number {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0.3rem;
+  }
+  
+  .month {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--gray-lighter);
+  }
+  
+  .time-slots {
+    text-align: center;
+  }
+  
+  .time-slots h4 {
+    margin-bottom: 1rem;
+    color: var(--gold);
+  }
+  
+  .times-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 0.5rem;
+  }
+  
+  .time-slot {
+    padding: 0.8rem;
+    background: rgba(255,255,255,0.05);
+    border: none;
+    border-radius: var(--radius-sm);
+    color: var(--light);
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .time-slot:hover {
+    background: rgba(255,255,255,0.1);
+  }
+  
+  .time-slot.selected {
+    background: var(--red);
+    color: white;
+  }
+  
+  @media (max-width: 768px) {
+    .calendar-days {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    
+    .calendar-day {
+      min-width: 70px;
+      padding: 0.8rem 0.3rem;
+    }
+    
+    .times-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }

@@ -1,0 +1,132 @@
+.artist-header {
+    position: relative;
+    margin-bottom: 2rem;
+  }
+  
+  .artist-cover {
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+  }
+  
+  .artist-cover::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.8));
+  }
+  
+  .artist-info-container {
+    position: relative;
+    max-width: 1200px;
+    margin: -100px auto 0;
+    padding: 0 1rem;
+  }
+  
+  .artist-profile {
+    display: flex;
+    align-items: flex-end;
+    gap: 2rem;
+  }
+  
+  .profile-image-container {
+    position: relative;
+    cursor: pointer;
+  }
+  
+  .profile-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid var(--dark);
+    box-shadow: var(--shadow-lg);
+    position: relative;
+    z-index: 2;
+  }
+  
+  .story-ring {
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, var(--red), var(--gold));
+    z-index: 1;
+    animation: rotate 10s linear infinite;
+  }
+  
+  @keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  
+  .artist-meta {
+    flex: 1;
+  }
+  
+  .artist-meta h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--gold);
+  }
+  
+  .specialty {
+    font-size: 1.2rem;
+    color: var(--red);
+    margin-bottom: 0.5rem;
+  }
+  
+  .experience {
+    color: var(--gray-lighter);
+    margin-bottom: 1rem;
+  }
+  
+  .social-links {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .social-links a {
+    color: var(--light);
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+  }
+  
+  .social-links a:hover {
+    color: var(--red);
+  }
+  
+  .artist-bio {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: var(--dark);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+  }
+  
+  @media (max-width: 768px) {
+    .artist-profile {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    
+    .social-links {
+      justify-content: center;
+    }
+    
+    .artist-meta h1 {
+      font-size: 2rem;
+    }
+    
+    .profile-image {
+      width: 120px;
+      height: 120px;
+    }
+  }

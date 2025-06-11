@@ -1,0 +1,127 @@
+.aftercare-guide {
+    background: var(--dark);
+    padding: 2rem;
+    border-radius: var(--radius-md);
+    max-width: 800px;
+    margin: 2rem auto;
+  }
+  
+  .aftercare-guide h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--gold);
+  }
+  
+  .timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto 3rem;
+  }
+  
+  .timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50px;
+    bottom: 0;
+    width: 2px;
+    background: var(--gray);
+  }
+  
+  .timeline-day {
+    position: relative;
+    padding-left: 80px;
+    margin-bottom: 1.5rem;
+  }
+  
+  .timeline-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255,255,255,0.05);
+    padding: 1rem;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .timeline-header:hover {
+    background: rgba(255,255,255,0.1);
+  }
+  
+  .timeline-header h3 {
+    font-size: 1.2rem;
+    color: var(--light);
+  }
+  
+  .timeline-header svg {
+    color: var(--red);
+    transition: transform 0.3s ease;
+  }
+  
+  .timeline-day.active .timeline-header svg {
+    transform: rotate(180deg);
+  }
+  
+  .timeline-steps {
+    padding: 1rem 0 1rem 1rem;
+    list-style-type: none;
+  }
+  
+  .timeline-steps li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.8rem;
+    color: var(--gray-lighter);
+  }
+  
+  .timeline-steps li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--red);
+    font-size: 1.5rem;
+    line-height: 1;
+  }
+  
+  .aftercare-tips {
+    background: rgba(230, 57, 70, 0.1);
+    padding: 1.5rem;
+    border-radius: var(--radius-md);
+    border-left: 4px solid var(--red);
+  }
+  
+  .aftercare-tips h3 {
+    color: var(--red);
+    margin-bottom: 1rem;
+  }
+  
+  .aftercare-tips ul {
+    list-style-type: none;
+  }
+  
+  .aftercare-tips li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  .aftercare-tips li::before {
+    content: '⚠️';
+    position: absolute;
+    left: 0;
+  }
+  
+  @media (max-width: 768px) {
+    .timeline::before {
+      left: 30px;
+    }
+    
+    .timeline-day {
+      padding-left: 60px;
+    }
+    
+    .timeline-header h3 {
+      font-size: 1rem;
+    }
+  }

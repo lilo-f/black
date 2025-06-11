@@ -1,0 +1,294 @@
+/* Variáveis de estilo */
+:root {
+  --tiger-primary: #FF6B6B;
+  --tiger-dark: #1A1A1A;
+  --tiger-darker: #0A0A0A;
+  --tiger-light: #F8FAFC;
+  --tiger-border: rgba(255, 107, 107, 0.3);
+}
+
+/* Estrutura base */
+.pizza-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.95);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  backdrop-filter: blur(5px);
+}
+
+.pizza-modal-container {
+  width: 100%;
+  max-width: 500px;
+  background: var(--tiger-darker);
+  border-radius: 20px;
+  overflow: hidden;
+  border: 2px solid var(--tiger-primary);
+  box-shadow: 0 0 40px rgba(255, 107, 107, 0.3);
+}
+
+/* Cabeçalho */
+.modal-header {
+  padding: 20px;
+  background: linear-gradient(to right, #2B2B2B, #1A1A1A);
+  border-bottom: 1px solid var(--tiger-border);
+  position: relative;
+}
+
+.header-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.pizza-icon {
+  font-size: 32px;
+  color: var(--tiger-primary);
+}
+
+.modal-header h2 {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--tiger-light);
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.modal-header h2 span {
+  color: var(--tiger-primary);
+}
+
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(30, 30, 30, 0.8);
+  border: 1px solid #444;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #9CA3AF;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.close-btn:hover {
+  color: var(--tiger-primary);
+  border-color: var(--tiger-primary);
+  transform: rotate(90deg);
+}
+
+/* Corpo do modal */
+.modal-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Pizza Wheel */
+.pizza-wheel-container {
+  position: relative;
+  width: 100%;
+  max-width: 350px;
+  margin: 0 auto;
+  aspect-ratio: 1/1;
+}
+
+.pizza-wheel {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #2B2B2B;
+  border: 10px solid #1A1A1A;
+  box-shadow: 
+    inset 0 0 30px rgba(0, 0, 0, 0.8),
+    0 0 0 5px #444,
+    0 0 30px rgba(0, 0, 0, 0.6);
+}
+
+.pizza-slice {
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  left: 0;
+  top: 0;
+  transform-origin: bottom right;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  background: var(--slice-color);
+  border-right: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.pizza-slice::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom right,
+    rgba(255, 255, 255, 0.15) 0%,
+    rgba(255, 255, 255, 0) 50%
+  );
+}
+
+.slice-content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 30%;
+}
+
+.slice-text {
+  transform: rotate(calc(var(--slice-angle) / 2)) translateX(30px);
+  color: var(--text-color);
+  font-weight: 700;
+  font-size: 12px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+  white-space: nowrap;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.pizza-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: 80px;
+  background: #1A1A1A;
+  border: 5px solid #444;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  box-shadow: 
+    0 0 20px rgba(0, 0, 0, 0.8),
+    inset 0 0 15px rgba(0, 0, 0, 0.8);
+}
+
+.tiger-icon {
+  color: var(--tiger-primary);
+  font-size: 32px;
+}
+
+.pizza-cutter {
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 40px solid var(--tiger-primary);
+  z-index: 3;
+  filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.7));
+}
+
+.pizza-cutter::after {
+  content: '';
+  position: absolute;
+  top: -40px;
+  left: -15px;
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-top: 30px solid #FFD700;
+}
+
+/* Efeitos de animação */
+.pizza-wheel.spinning {
+  animation: pizza-spin-glow 0.8s infinite alternate;
+}
+
+@keyframes pizza-spin-glow {
+  0% { box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.8), 0 0 0 5px #444, 0 0 30px rgba(0, 0, 0, 0.6); }
+  100% { box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.8), 0 0 0 5px #666, 0 0 50px rgba(255, 107, 107, 0.5); }
+}
+
+/* Botão de girar */
+.spin-btn {
+  background: linear-gradient(135deg, var(--tiger-primary), #FF8E53);
+  color: var(--tiger-darker);
+  border: none;
+  padding: 16px 32px;
+  border-radius: 50px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px auto;
+  cursor: pointer;
+  transition: all 0.3s;
+  width: 100%;
+  max-width: 250px;
+  box-shadow: 0 4px 20px rgba(255, 107, 107, 0.4);
+}
+
+.spin-btn:hover:not(:disabled) {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 25px rgba(255, 107, 107, 0.6);
+}
+
+.spin-btn:disabled {
+  background: #333;
+  color: #666;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Seção de formulário */
+.form-section {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.form-container {
+  background: rgba(30, 30, 30, 0.7);
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #333;
+}
+
+.form-container h3 {
+  color: var(--tiger-primary);
+  font-size: 18px;
+  margin-bottom: 15px;
+  text-align: center;
+  text-transform: uppercase;
+}
+

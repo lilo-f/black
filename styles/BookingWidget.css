@@ -1,0 +1,50 @@
+.booking-widget {
+    background: var(--dark);
+    padding: 2rem;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .booking-steps {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    position: relative;
+  }
+  
+  .booking-steps::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--gray);
+    z-index: 1;
+  }
+  
+  .step {
+    position: relative;
+    z-index: 2;
+    background: var(--dark);
+    padding: 0 1rem;
+    color: var(--gray-lighter);
+    font-size: 0.9rem;
+  }
+  
+  .step.active {
+    color: var(--red);
+    font-weight: bold;
+  }
+  
+  .step-content {
+    min-height: 400px;
+  }
+  
+  @media (max-width: 768px) {
+    .booking-steps {
+      font-size: 0.8rem;
+    }
+  }

@@ -1,0 +1,528 @@
+/* Estilos gerais */
+.black-tiger-den {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(to bottom, #0a0a0a 0%, #1a1a1a 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Arial', sans-serif;
+  color: #e0e0e0;
+}
+
+/* Camadas da selva */
+.jungle-canvas {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background: 
+    radial-gradient(ellipse at center, 
+      rgba(10,30,10,0.2) 0%, 
+      rgba(5,15,5,0.8) 100%);
+}
+
+.jungle-layer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: 200px 200px;
+  background-image: 
+    radial-gradient(circle, 
+      rgba(255,255,255,0.1) 1px, 
+      transparent 1px);
+  opacity: 0.3;
+  animation: sway 60s infinite linear;
+}
+
+.layer-1 {
+  animation-duration: 60s;
+  background-size: 250px 250px;
+}
+
+.layer-2 {
+  animation-duration: 40s;
+  animation-direction: reverse;
+  opacity: 0.2;
+  background-size: 300px 300px;
+}
+
+.layer-3 {
+  animation-duration: 30s;
+  opacity: 0.15;
+  background-size: 350px 350px;
+}
+
+@keyframes sway {
+  0% { background-position: 0 0; }
+  100% { background-position: 100% 100%; }
+}
+
+/* Portal do tigre */
+.tiger-gate {
+  position: relative;
+  z-index: 2;
+  background: rgba(10, 10, 10, 0.8);
+  border-radius: 15px;
+  padding: 2.5rem;
+  width: 90%;
+  max-width: 450px;
+  box-shadow: 
+    0 0 30px rgba(255, 165, 0, 0.3),
+    inset 0 0 20px rgba(255, 165, 0, 0.1);
+  border: 1px solid #ff8c00;
+  backdrop-filter: blur(8px);
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.tiger-portal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.tiger-gate-title {
+  font-size: 2rem;
+  text-align: center;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #ff8c00;
+  text-shadow: 0 0 10px rgba(255, 140, 0, 0.5);
+  font-weight: 900;
+}
+
+.tiger-gate-subtitle {
+  font-size: 1rem;
+  text-align: center;
+  margin: 0;
+  opacity: 0.8;
+  font-style: italic;
+}
+
+/* Olho do tigre - versão ultra realista */
+.tiger-eye {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: #1a1a1a;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 
+    0 0 30px rgba(255, 140, 0, 0.5),
+    inset 0 0 20px rgba(0,0,0,0.8);
+  transform: translateZ(20px);
+}
+
+.eye-socket {
+  position: absolute;
+  width: 80%;
+  height: 80%;
+  background: linear-gradient(135deg, #ff8c00, #ff5500);
+  border-radius: 50%;
+  top: 10%;
+  left: 10%;
+  overflow: hidden;
+  box-shadow: inset 0 0 30px rgba(0,0,0,0.5);
+}
+
+.eye-iris {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at center, 
+      #000 0%, 
+      #330 40%, 
+      #550 100%);
+  border-radius: 50%;
+}
+
+.eye-pupil {
+  position: absolute;
+  width: 35%;
+  height: 35%;
+  background: #000;
+  border-radius: 50%;
+  top: 32.5%;
+  left: 32.5%;
+  transform: translate(var(--pupil-x, 0), var(--pupil-y, 0));
+  transition: transform 0.05s linear;
+  box-shadow: 0 0 10px rgba(0,0,0,0.8);
+}
+
+.eye-glint {
+  position: absolute;
+  width: 15%;
+  height: 15%;
+  background: white;
+  border-radius: 50%;
+  top: 20%;
+  left: 20%;
+  filter: blur(1px);
+}
+
+.eye-veins {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(circle, transparent 90%, rgba(255,0,0,0.1) 90%),
+    linear-gradient(45deg, transparent 48%, rgba(255,0,0,0.1) 49%, rgba(255,0,0,0.1) 51%, transparent 52%),
+    linear-gradient(-45deg, transparent 48%, rgba(255,0,0,0.1) 49%, rgba(255,0,0,0.1) 51%, transparent 52%);
+  background-size: 10px 10px;
+  opacity: 0.5;
+}
+
+.eye-lid {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #1a1a1a;
+  border-radius: 50%;
+  z-index: 2;
+  transform: translateY(0);
+  transition: transform 0.3s ease;
+  box-shadow: inset 0 0 20px rgba(0,0,0,0.8);
+}
+
+.eye-fur {
+  position: absolute;
+  background: #1a1a1a;
+  width: 100%;
+  height: 25%;
+  z-index: 1;
+  box-shadow: 0 0 15px rgba(0,0,0,0.8);
+}
+
+.eye-fur.top {
+  top: -20%;
+  border-radius: 50% 50% 0 0;
+  clip-path: polygon(0% 100%, 100% 100%, 90% 0%, 10% 0%);
+}
+
+.eye-fur.bottom {
+  bottom: -20%;
+  border-radius: 0 0 50% 50%;
+  clip-path: polygon(10% 100%, 90% 100%, 100% 0%, 0% 0%);
+}
+
+.eye-sparkle {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, transparent 70%, rgba(255,255,255,0.2) 100%);
+  z-index: 3;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Estados do olho */
+.tiger-eye.normal .eye-lid {
+  transform: translateY(0);
+}
+
+.tiger-eye.watching {
+  transform: translateZ(20px) scale(1.05);
+}
+
+.tiger-eye.watching .eye-lid {
+  transform: translateY(-15%);
+}
+
+.tiger-eye.angry {
+  background: #300;
+  box-shadow: 0 0 40px rgba(255, 0, 0, 0.6);
+}
+
+.tiger-eye.angry .eye-socket {
+  background: linear-gradient(135deg, #ff0000, #990000);
+}
+
+.tiger-eye.angry .eye-lid {
+  transform: translateY(-40%);
+}
+
+.tiger-eye.angry .eye-veins {
+  opacity: 0.8;
+}
+
+.tiger-eye.roaring {
+  animation: roar 0.8s ease-in-out;
+}
+
+.tiger-eye.roaring .eye-sparkle {
+  opacity: 1;
+}
+
+@keyframes roar {
+  0%, 100% { transform: translateZ(20px) scale(1); }
+  25% { transform: translateZ(20px) scale(1.2); }
+  50% { transform: translateZ(20px) scale(0.9); }
+  75% { transform: translateZ(20px) scale(1.15); }
+}
+
+/* Problema matemático */
+.math-problem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-size: 2rem;
+  margin: 1.5rem 0;
+}
+
+.math-problem span {
+  color: #ff8c00;
+  font-weight: bold;
+}
+
+.math-input {
+  width: 60px;
+  padding: 0.5rem;
+  font-size: 1.5rem;
+  text-align: center;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid #ff8c00;
+  border-radius: 5px;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.math-input:focus {
+  outline: none;
+  border-color: #ff5500;
+  box-shadow: 0 0 10px rgba(255, 140, 0, 0.5);
+}
+
+/* Botão */
+.tiger-button {
+  background: linear-gradient(to right, #ff8c00, #ff5500);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  margin-top: 1rem;
+  box-shadow: 0 5px 15px rgba(255, 140, 0, 0.4);
+}
+
+.tiger-button:hover:not(:disabled) {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(255, 140, 0, 0.6);
+}
+
+.tiger-button:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.tiger-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  background: #666;
+  box-shadow: none;
+}
+
+.tiger-button.loading {
+  color: transparent;
+}
+
+.tiger-spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 24px;
+  height: 24px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Mensagens de erro */
+.tiger-warning {
+  color: #ff5555;
+  text-align: center;
+  font-size: 1rem;
+  margin: 0.5rem 0;
+  padding: 0.8rem;
+  background: rgba(255, 0, 0, 0.1);
+  border-radius: 5px;
+  width: 100%;
+  animation: pulse 2s infinite;
+  border: 1px solid #ff5555;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.9; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.02); }
+}
+
+/* Dica */
+.tiger-hint {
+  font-size: 0.9rem;
+  opacity: 0.6;
+  text-align: center;
+  margin-top: 1.5rem;
+  font-style: italic;
+}
+
+/* Patas do tigre */
+.tiger-paws {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.paw {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  opacity: 0.1;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  filter: drop-shadow(0 0 5px rgba(255,140,0,0.5));
+}
+
+.paw.left {
+  bottom: 30px;
+  left: 30px;
+  background-image: 
+    radial-gradient(ellipse at center, 
+      rgba(255,255,255,0.2) 0%, 
+      transparent 70%),
+    linear-gradient(45deg, 
+      transparent 45%, 
+      rgba(255,255,255,0.1) 46%, 
+      rgba(255,255,255,0.1) 54%, 
+      transparent 55%),
+    linear-gradient(-45deg, 
+      transparent 45%, 
+      rgba(255,255,255,0.1) 46%, 
+      rgba(255,255,255,0.1) 54%, 
+      transparent 55%);
+}
+
+.paw.right {
+  bottom: 30px;
+  right: 30px;
+  background-image: 
+    radial-gradient(ellipse at center, 
+      rgba(255,255,255,0.2) 0%, 
+      transparent 70%),
+    linear-gradient(45deg, 
+      transparent 45%, 
+      rgba(255,255,255,0.1) 46%, 
+      rgba(255,255,255,0.1) 54%, 
+      transparent 55%),
+    linear-gradient(-45deg, 
+      transparent 45%, 
+      rgba(255,255,255,0.1) 46%, 
+      rgba(255,255,255,0.1) 54%, 
+      transparent 55%);
+  transform: scaleX(-1);
+}
+
+/* Efeitos especiais */
+@keyframes flicker {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 1; }
+}
+
+@media (max-width: 600px) {
+  .tiger-gate {
+    padding: 1.5rem;
+    width: 95%;
+  }
+  
+  .tiger-gate-title {
+    font-size: 1.5rem;
+  }
+  
+  .math-problem {
+    font-size: 1.5rem;
+  }
+  
+  .math-input {
+    width: 50px;
+    font-size: 1.2rem;
+  }
+}/* (Mantém os estilos anteriores do olho de tigre e fundo) */
+
+/* Novos estilos para login social */
+.social-login {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.social-btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+.google-btn {
+  background: #4285F4;
+  color: white;
+}
+
+.facebook-btn {
+  background: #3b5998;
+  color: white;
+}
+
+.toggle-auth-mode {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+.toggle-btn {
+  background: none;
+  border: none;
+  color: #ff8c00;
+  cursor: pointer;
+  font-weight: bold;
+  margin-left: 5px;
+}
+
+.toggle-btn:hover {
+  text-decoration: underline;
+}

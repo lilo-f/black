@@ -1,0 +1,39 @@
+.gallery-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+    margin: 2rem 0;
+  }
+  
+  .filter-button {
+    padding: 0.5rem 1.5rem;
+    background: transparent;
+    border: 1px solid var(--gray);
+    color: var(--light);
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: capitalize;
+  }
+  
+  .filter-button:hover {
+    border-color: var(--gray-lighter);
+  }
+  
+  .filter-button.active {
+    background: var(--red);
+    border-color: var(--red);
+    color: white;
+  }
+  
+  @media (max-width: 768px) {
+    .gallery-filter {
+      gap: 0.3rem;
+    }
+    
+    .filter-button {
+      padding: 0.4rem 1rem;
+      font-size: 0.9rem;
+    }
+  }

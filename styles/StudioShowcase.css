@@ -1,0 +1,143 @@
+.studio-showcase {
+  padding: 6rem 1rem;
+  background: #fff;
+  position: relative;
+}
+
+.showcase-header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 4rem;
+}
+
+.showcase-header h2 {
+  font-size: 2.5rem;
+  font-weight: 300;
+  letter-spacing: 3px;
+  color: #333;
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.showcase-header h2::before,
+.showcase-header h2::after {
+  content: "⋆";
+  position: relative;
+  margin: 0 1rem;
+  color: #d4af37; /* Dourado */
+  font-size: 1.5rem;
+}
+
+.showcase-header p {
+  font-size: 1.1rem;
+  color: #777;
+  line-height: 1.8;
+  font-family: 'Playfair Display', serif;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.feature-card {
+  background: #fff;
+  border-radius: 3px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: all 0.4s ease;
+  position: relative;
+}
+
+.feature-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #d4af37, #333, #d4af37);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+
+.feature-card:hover::before {
+  transform: scaleX(1);
+}
+
+.feature-image-container {
+  height: 250px;
+  overflow: hidden;
+}
+
+.feature-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+
+.feature-card:hover .feature-image-container img {
+  transform: scale(1.05);
+}
+
+.feature-content {
+  padding: 1.5rem;
+}
+
+.feature-content h3 {
+  font-size: 1.3rem;
+  font-weight: 400;
+  letter-spacing: 1px;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.feature-content p {
+  font-size: 0.9rem;
+  color: #777;
+  line-height: 1.8;
+}
+
+/* Botão com efeito de pata de tigre */
+.cta-button {
+  display: inline-block;
+  margin-top: 3rem;
+  padding: 1rem 2.5rem;
+  background: #333;
+  color: #fff;
+  border: none;
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  margin-left: 445px;
+}
+
+.cta-button::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: url('../public/img/itiger.png') repeat;
+  opacity: 0.1;
+  z-index: 0;
+}
+
+.cta-button span {
+  position: relative;
+  z-index: 1;
+}
+
+.cta-button:hover {
+  background: #d4af37;
+  color: #333;
+}

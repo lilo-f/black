@@ -1,0 +1,74 @@
+.product-recommendations {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 1rem;
+  }
+  
+  .product-card {
+    background: var(--dark);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.3s ease;
+  }
+  
+  .product-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .product-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .product-info {
+    padding: 1.5rem;
+  }
+  
+  .product-info h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: var(--gold);
+  }
+  
+  .price {
+    font-size: 1.1rem;
+    color: var(--red);
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
+  .features {
+    margin: 1rem 0;
+    padding-left: 1rem;
+  }
+  
+  .features li {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--gray-lighter);
+  }
+  
+  .buy-button {
+    background: var(--red);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    width: 100%;
+    font-weight: bold;
+    transition: background 0.3s ease;
+  }
+  
+  .buy-button:hover {
+    background: #c1121f;
+  }
+  
+  @media (max-width: 768px) {
+    .product-recommendations {
+      grid-template-columns: 1fr;
+    }
+  }

@@ -1,0 +1,53 @@
+.aftercare-page {
+    padding: 2rem 0;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .page-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  
+  .page-header h1 {
+    font-size: 2.5rem;
+    color: var(--red);
+    margin-bottom: 1rem;
+  }
+  
+  .page-header p {
+    font-size: 1.2rem;
+    color: var(--gray-lighter);
+  }
+  
+  .product-recommendations {
+    margin: 4rem 0;
+  }
+  
+  .product-recommendations h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    color: var(--gold);
+  }
+  
+  .aftercare-faq {
+    margin: 4rem 0;
+  }
+  
+  .aftercare-faq h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    color: var(--gold);
+  }
+  
+  @media (max-width: 768px) {
+    .page-header h1 {
+      font-size: 2rem;
+    }
+    
+    .page-header p {
+      font-size: 1rem;
+    }
+  }

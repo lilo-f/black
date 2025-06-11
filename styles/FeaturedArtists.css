@@ -1,0 +1,222 @@
+:root {
+  --black: #0a0a0a;
+  --black-light: #1a1a1a;
+  --orange: #ff6b00;
+  --orange-dark: #e05a00;
+  --gold: #d4af37;
+  --white: #f0f0f0;
+  --gray: #888;
+}
+
+.black-tiger-artists {
+  padding: 5rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.black-tiger-artists::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--orange), transparent);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.title-container {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.section-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 3rem;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  display: inline-block;
+  margin: 0 auto;
+}
+
+.title-decorator {
+  color: var(--orange);
+  margin: 0 0.5rem;
+}
+
+.artists-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2.5rem;
+  margin: 4rem 0;
+}
+
+.artist-card {
+  background: var(--black-light);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  border: 1px solid rgba(255, 107, 0, 0.1);
+}
+
+.artist-card:hover {
+  transform: translateY(-15px);
+  border-color: rgba(255, 107, 0, 0.3);
+}
+
+.card-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.artist-image-container {
+  position: relative;
+  height: 400px;
+  overflow: hidden;
+}
+
+.artist-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+
+.artist-card:hover .artist-image {
+  transform: scale(1.1);
+}
+
+.artist-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.5rem;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+  display: flex;
+  justify-content: flex-end;
+}
+
+.specialty-badge {
+  background: var(--orange);
+  color: white;
+  padding: 0.3rem 1rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.artist-info {
+  padding: 1.8rem;
+  text-align: left;
+}
+
+.artist-info h3 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.8rem;
+  color: var(--white);
+  margin-bottom: 0.5rem;
+  letter-spacing: 1px;
+}
+
+.artist-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.experience {
+  font-size: 0.9rem;
+  color: var(--gray);
+  font-style: italic;
+}
+
+.view-profile {
+  color: var(--orange);
+  font-size: 0.9rem;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.artist-card:hover .view-profile {
+  color: var(--gold);
+}
+
+.button-container {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.view-all-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 2.5rem;
+  background: transparent;
+  color: var(--orange);
+  border: 2px solid var(--orange);
+  border-radius: 50px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.view-all-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 107, 0, 0.2), transparent);
+  transition: 0.5s;
+}
+
+.view-all-button:hover {
+  background: var(--orange);
+  color: var(--black);
+  box-shadow: 0 0 20px rgba(255, 107, 0, 0.4);
+  transform: translateY(-3px);
+}
+
+.view-all-button:hover::before {
+  left: 100%;
+}
+
+.button-icon {
+  font-size: 1.4rem;
+  transition: transform 0.3s ease;
+}
+
+.view-all-button:hover .button-icon {
+  transform: rotate(45deg);
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2.2rem;
+  }
+  
+  .artists-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .artist-image-container {
+    height: 350px;
+  }
+}

@@ -1,0 +1,60 @@
+.gallery-page {
+    padding: 2rem 1rem;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  
+  .masonry-grid {
+    display: grid;
+    grid-template-columns: repeat(var(--columns, 3), 1fr);
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  
+  .masonry-column {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .masonry-item {
+    position: relative;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .masonry-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  .item-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    padding: 1rem;
+    color: white;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+  }
+  
+  .masonry-item:hover .item-info {
+    transform: translateY(0);
+  }
+  
+  @media (max-width: 1024px) {
+    .masonry-grid {
+      --columns: 2;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .masonry-grid {
+      --columns: 1;
+    }
+  }

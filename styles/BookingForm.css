@@ -1,0 +1,146 @@
+.booking-form {
+    background: var(--dark);
+    padding: 2rem;
+    border-radius: var(--radius-md);
+    max-width: 800px;
+    margin: 0 auto;
+    box-shadow: var(--shadow-md);
+  }
+  
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--gray-lighter);
+    font-weight: bold;
+  }
+  
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--gray);
+    border-radius: var(--radius-sm);
+    color: var(--light);
+    font-family: inherit;
+  }
+  
+  .form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+  
+  .image-upload-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .upload-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    background: var(--red);
+    color: white;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .upload-button:hover {
+    background: #c1121f;
+  }
+  
+  .image-previews {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 1rem;
+  }
+  
+  .image-preview {
+    position: relative;
+    height: 120px;
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+  }
+  
+  .image-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .remove-image {
+    position: absolute;
+    top: 0.3rem;
+    right: 0.3rem;
+    width: 25px;
+    height: 25px;
+    background: var(--red);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .image-preview:hover .remove-image {
+    opacity: 1;
+  }
+  
+  .form-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+  }
+  
+  .back-button, .submit-button {
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: var(--radius-md);
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .back-button {
+    background: var(--gray);
+    color: var(--light);
+  }
+  
+  .back-button:hover {
+    background: var(--gray-light);
+  }
+  
+  .submit-button {
+    background: var(--red);
+    color: white;
+  }
+  
+  .submit-button:hover {
+    background: #c1121f;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(230, 57, 70, 0.3);
+  }
+  
+  @media (max-width: 768px) {
+    .form-actions {
+      flex-direction: column;
+      gap: 1rem;
+    }
+    
+    .back-button, .submit-button {
+      width: 100%;
+    }
+  }
